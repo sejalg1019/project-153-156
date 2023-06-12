@@ -34,6 +34,15 @@ AFRAME.registerComponent("fish", {
 
         fishEl.setAttribute("animation-mixer", {})
 
+        fishEl.setAttribute("static-body", {
+            shape: "sphere",
+            sphereRadius: 5
+        })
+
+        fishEl.setAttribute("game-play", {
+            elementId: `#${id}`
+        })
+
         fishEntity.appendChild(fishEl)
     }
 })
