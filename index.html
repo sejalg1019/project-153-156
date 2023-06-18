@@ -15,12 +15,14 @@
     <body>
         <a-scene >
 
+            <!-- CAMERA -->
             <a-entity
             camera
             look-controls
             position="0 10 25"
             ></a-entity>
 
+            <!---Assets-->
             <a-assets>
                 <a-asset-item id="island" src="assets/island/scene.gltf"></a-asset-item>
 
@@ -41,6 +43,7 @@
                 ></a-asset-item>
             </a-assets>
 
+            <!--Sky-->
             <a-sky
                 geometry="primitive: sphere;"
                 material="shader: gradient; bottomColor: #00009e; topColor:109 205 227;offset: 0.0001;"
@@ -49,7 +52,9 @@
                 side="double"
                 animation="property: rotation; to: 0 300 0; easing:linear; loop: true; dur: 500000"
             >
+                <!--GLTF Models-->
 
+                <!--Island-->
                 <a-entity
                 gltf-model="#island"
                 scale="1 1 1"
@@ -57,6 +62,7 @@
                 terrain-rotation-reader
                 ></a-entity>
 
+                <!--Treasures-->
                 <a-entity
                 gltf-model="#treasure"
                 scale="15 15 15"
@@ -78,6 +84,7 @@
                 rotation="0 90 0"
                 ></a-entity>
             
+                <!--Turtle-->
                 <a-entity
                 gltf-model="#turtle"
                 scale="0.005 0.005 0.005"
@@ -86,6 +93,7 @@
                 ></a-entity>
             </a-sky>
 
+            <!--Scuba Driver-->
             <a-entity
                 gltf-model="#scuba_driver"
                 scale="0.1 0.1 0.1"
@@ -106,9 +114,67 @@
 
             <a-cylinder color="#00009e" radius="100" opacity="0.2"></a-cylinder>
 
+            <!--Fish Entity-->
             <a-entity id="fish_model" fish></a-entity>
 
+            <!--Coin Entity-->
             <a-entity id="coin_model" coins></a-entity>
+
+
+      <!-----------------------------------Game Timer and Score------------------------------------------>
+      <a-entity id="header" position="1 -4 0">
+        <!-- Title -->
+        <a-entity
+          position="-28.5 21.5 0"
+          text="font: exo2bold; align: center; width: 40; color: white; value: VIRTUAL FLIGHT"
+        ></a-entity>
+
+        <!-- Timer -->
+        <a-entity position="-23.5 19.3 0">
+          <a-entity
+            position="-1.5 0.07 0"
+            text="font: aileronsemibold; width: 12; color: white; value: TIME\nREMAINING"
+          ></a-entity>
+          <a-entity
+            id="timer"
+            position="-9.8 0.3 0"
+            text="font: exo2bold; align: center; width: 30; color: white; value: 00:00"
+          ></a-entity>
+        </a-entity>
+        
+        <a-entity position="-18 19.3 0">
+          <a-entity
+            position="-0.6 0.13 0"
+            text="font: aileronsemibold; width: 12; color: white; value: COINS\nREMAINING"
+          ></a-entity>
+          <a-entity
+            id="targets"
+            position="-8 0.3 0"
+            text="font: exo2bold; align: center; width: 30; color: white; value: 20"
+          ></a-entity>
+        </a-entity>
+
+        <a-entity position="30 21.5 0">
+          <a-entity
+            position="12 0 0"
+            text="font: aileronsemibold; width: 40; color: white; value: SCORE"
+          ></a-entity>
+          <a-entity
+            id="score"
+            position="1 0 0"
+            text="font: exo2bold; align: center; width: 40; color: white; value: 0"
+          ></a-entity>
+        </a-entity>
+
+      </a-entity>
+    
+    <a-entity
+      id="game_over_text"
+      position="0 7.5 0"
+      text="font: exo2bold; align: center; width: 100; color: black; value: GAME OVER"
+      visible="false"
+    ></a-entity>
+
         </a-scene>
     </body>
 </html>
